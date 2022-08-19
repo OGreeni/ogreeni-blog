@@ -1,0 +1,21 @@
+.mainNav {
+  font-family: 'Silkscreen', 'Roboto', sans-serif;
+
+  display: flex;
+  position: static;
+  background: rgb(0, 3, 51);
+  height: 3.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainNav a {
+  color: white;
+  background: rgb(24, 24, 24);
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
+
+.mainNav a:active {
+  border-bottom: 2px solid #fff700;
+}
