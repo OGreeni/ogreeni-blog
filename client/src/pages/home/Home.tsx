@@ -23,11 +23,11 @@ const Home = () => {
         </header>
         <section>
           <img className={styles.profilePic} src={profile} alt="Profile" />
-          <caption>An awkward picture of me in NYC</caption>
+          <p>An awkward picture of me in NYC</p>
         </section>
         <section>
           <article>
-            <h2 className={styles.techTitle}>Technologies I'm using:</h2>
+            <h2 className={styles.techTitle}>My latest articles:</h2>
           </article>
         </section>
       </div>

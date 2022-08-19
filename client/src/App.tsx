@@ -12,7 +12,12 @@ function App() {
   return (
     <Router>
       <NavBar>
-        <Link to="/">IMG</Link>
+        <Link to="/">
+          <img
+            src="https://github.com/cadgerfeast/pixel-icons/blob/master/png-128/home.png?raw=true"
+            alt="Home"
+          />
+        </Link>
         <div>
           <Link to="/about">About me</Link>
           <Link to="/">GitHub</Link>
