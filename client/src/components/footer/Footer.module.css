@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container a {
+  color: #656565;
+}
+
+.container a:hover,
+.container a:active {
+  border-bottom: 2px solid #656565;
+}
+
+.footer {
+  height: 10px;
+}

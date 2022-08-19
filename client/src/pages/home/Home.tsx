@@ -1,14 +1,36 @@
 import React from 'react';
 
-import './Home.module.css';
+import styles from './Home.module.css';
+import profile from '../../assets/profile.jpg';
 
 const Home = () => {
   return (
     <>
-      <header>
-        <h1>Hi! I'm Omri Green</h1>
-      </header>
-      <main></main>
+      <div className={styles.container}>
+        <header>
+          <div className={styles.titleContainer}>
+            <h1 className={styles.mainTitle}>Hi, I'm Omri Green</h1>
+            <img
+              className={styles.greenCircle}
+              src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/310/large-green-circle_1f7e2.png"
+              alt="Green circle"
+            />{' '}
+          </div>
+          <h2 className={styles.mainSubTitle}>
+            I'm a software developer and also a student at Rutgers University,
+            passionate about all-things web dev.
+          </h2>
+        </header>
+        <section>
+          <img className={styles.profilePic} src={profile} alt="Profile" />
+          <caption>An awkward picture of me in NYC</caption>
+        </section>
+        <section>
+          <article>
+            <h2 className={styles.techTitle}>Technologies I'm using:</h2>
+          </article>
+        </section>
+      </div>
     </>
   );
 };

@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
 import NavBar from './components/navbar/NavBar';
+import Footer from './components/footer/Footer';
+
 import Home from './pages/home/Home';
 
 function App() {
@@ -16,9 +18,16 @@ function App() {
           <Link to="/">GitHub</Link>
         </div>
       </NavBar>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <div className="container">
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </div>
+        <div>
+          <Footer />
+        </div>
+      </div>
     </Router>
   );
 }

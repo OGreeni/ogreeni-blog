@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 
@@ -12,4 +12,12 @@ html {
 
 body {
   margin: 0;
+  background: #f8ffe7;
+}
+
+.container {
+  height: 90vh;
+  display: grid;
+  grid-template-rows: 87.5vh auto;
+  color: #888888;
 }

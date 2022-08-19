@@ -16,6 +16,7 @@
   text-decoration: none;
 }
 
+.mainNav a:hover,
 .mainNav a:active {
   border-bottom: 2px solid #fff700;
 }
