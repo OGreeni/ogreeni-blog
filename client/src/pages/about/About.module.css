@@ -1,0 +1,55 @@
+.container {
+  display: grid;
+  row-gap: 1rem;
+  margin: 0rem 1rem;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.mainTitle {
+  color: #3b3b3b;
+  font-size: 2rem;
+}
+
+.greenCircle {
+  width: 45px;
+  margin-left: 0.5rem;
+  vertical-align: center;
+}
+
+.mainSubTitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #656565;
+}
+
+.profilePic {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 3px;
+  box-shadow: 8px 6px 10px -10px rgba(0, 0, 0, 0.74);
+}
+
+p {
+  text-align: center;
+  display: block;
+  margin-top: 0.25rem;
+  color: #656565;
+  font-weight: 300;
+}
+
+.techTitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #656565;
+}
+
+.resumeTitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: #656565;
+}

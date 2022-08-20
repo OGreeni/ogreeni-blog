@@ -7,6 +7,8 @@ import NavBar from './components/navbar/NavBar';
 import Footer from './components/footer/Footer';
 
 import Home from './pages/home/Home';
+import About from './pages/about/About';
+import Contact from './pages/contact/Contact';
 
 function App() {
   return (
@@ -20,17 +22,34 @@ function App() {
         </Link>
         <div>
           <Link to="/about">About me</Link>
-          <Link to="/">GitHub</Link>
+          <a href="https://github.com/OGreeni">GitHub</a>
         </div>
       </NavBar>
       <div className="container">
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
         <div>
-          <Footer />
+          <Footer>
+            <Link to="/contact">
+              Contact me
+              <img
+                src="https://github.com/cadgerfeast/pixel-icons/blob/master/png-128/phone.png?raw=true"
+                alt="Contact"
+              />
+            </Link>
+            <a href="https://www.linkedin.com/in/omri-green-880091240/">
+              LinkedIn
+              <img
+                src="https://github.com/cadgerfeast/pixel-icons/blob/master/png-128/linkedin.png?raw=true"
+                alt="LinkedIn"
+              />
+            </a>
+          </Footer>
         </div>
       </div>
     </Router>

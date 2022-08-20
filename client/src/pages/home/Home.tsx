@@ -14,7 +14,7 @@ const Home = () => {
               className={styles.greenCircle}
               src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/310/large-green-circle_1f7e2.png"
               alt="Green circle"
-            />{' '}
+            />
           </div>
           <h2 className={styles.mainSubTitle}>
             I'm a software developer and also a student at Rutgers University,
@@ -27,7 +27,7 @@ const Home = () => {
         </section>
         <section>
           <article>
-            <h2 className={styles.techTitle}>My latest articles:</h2>
+            <h2 className={styles.techTitle}>My latest guides:</h2>
           </article>
         </section>
       </div>
