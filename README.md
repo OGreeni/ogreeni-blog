@@ -1,1 +1,1 @@
-# ogreeni-blog
+# ogreeni-blog-frontend
