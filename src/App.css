@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&display=swap');
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 body {
   margin: 0;
-  background: #f8ffe7;
+  background-color: rgb(40, 44, 52);
 }
 
 .container {
   height: 90vh;
   display: grid;
-  grid-template-rows: 87.5vh auto;
-  color: #888888;
+  grid-template-rows: 1fr auto;
+  max-width: 70rem;
+  margin: 0 auto;
+  color: white;
 }

@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from './About.module.css';
 
+import Button from '../../components/button/Button';
+
 const About = () => {
   return (
     <>
@@ -9,6 +11,16 @@ const About = () => {
         <header>
           <div className={styles.titleContainer}>
             <h1 className={styles.mainTitle}>About me</h1>
+            <img
+              className={styles.greenCircle}
+              src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/310/large-green-circle_1f7e2.png"
+              alt="Green circle"
+            />
+            <img
+              className={styles.greenCircle}
+              src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/310/large-green-circle_1f7e2.png"
+              alt="Green circle"
+            />
             <img
               className={styles.greenCircle}
               src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/microsoft/310/large-green-circle_1f7e2.png"
@@ -24,6 +36,7 @@ const About = () => {
         <main>
           <section>
             <h3 className={styles.resumeTitle}>Download my resume:</h3>
+            <Button>Download</Button>
           </section>
         </main>
       </div>

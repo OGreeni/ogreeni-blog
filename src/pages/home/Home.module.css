@@ -1,7 +1,5 @@
 .container {
-  display: grid;
-  row-gap: 1rem;
-  margin: 0rem 1rem;
+  margin: 0 2rem;
 }
 
 .titleContainer {
@@ -10,28 +8,18 @@
 }
 
 .mainTitle {
-  color: #3b3b3b;
-  font-size: 2rem;
-}
-
-.greenCircle {
-  width: 45px;
-  margin-left: 0.5rem;
-  vertical-align: center;
+  color: white;
+  font-size: 6rem;
 }
 
 .mainSubTitle {
-  font-size: 1.5rem;
+  font-size: 3rem;
+  margin: 0;
   font-weight: 300;
-  color: #656565;
 }
 
-.profilePic {
-  width: 70%;
-  display: block;
-  margin: 0 auto;
-  border-radius: 3px;
-  box-shadow: 8px 6px 10px -10px rgba(0, 0, 0, 0.74);
+.green {
+  color: #a5e8a5;
 }
 
 p {
@@ -42,8 +30,9 @@ p {
   font-weight: 300;
 }
 
-.techTitle {
+.guidesTitle {
   font-size: 1.5rem;
+  margin: 0;
   font-weight: 300;
   color: #656565;
 }
