@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+*::selection {
+  background-color: #a5e8a5;
+  color: black;
+}
+
 html {
   font-family: 'Noto Sans', sans-serif;
 }

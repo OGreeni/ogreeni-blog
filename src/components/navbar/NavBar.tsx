@@ -5,8 +5,8 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-const NavBar = (props: Props) => {
-  return <nav className={styles.mainNav}>{props.children}</nav>;
+const NavBar = ({ children }: Props) => {
+  return <nav className={styles.mainNav}>{children}</nav>;
 };
 
 export default NavBar;

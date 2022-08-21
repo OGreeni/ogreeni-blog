@@ -11,11 +11,11 @@ const Home = () => {
             Hi, I'm Omri <span className={styles.green}>Green</span>
           </h1>
         </div>
-        <h2 className={styles.mainSubTitle}>
-          I'm a software developer and also a student at Rutgers University,
-          passionate about all-things web dev.
-        </h2>
       </header>
+      <h2 className={styles.mainSubTitle}>
+        I'm a software developer and also a student at Rutgers University,
+        passionate about all-things web dev.
+      </h2>
     </div>
   );
 };

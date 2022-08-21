@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import './App.css';
 
 import NavBar from './components/navbar/NavBar';
 import Footer from './components/footer/Footer';
+import Modal from './components/modal/Moda';
+import Form from './components/form/Form';
+import Button from './components/button/Button';
 
 import Home from './pages/home/Home';
 import About from './pages/about/About';
 
 function App() {
+  const [show, setShow] = useState(false);
+
   return (
     <Router>
       <NavBar>
@@ -28,11 +33,28 @@ function App() {
         </div>
         <div>
           <Footer>
-            <Link to="/contact">Contact me</Link>
-            <a href="https://www.linkedin.com/in/omri-green-880091240/">
+            <Button onClick={() => setShow(true)}>Contact me</Button>
+            <Button
+              onClick={() =>
+                window.open(
+                  'https://www.linkedin.com/in/omri-green-880091240/',
+                  '_blank'
+                )
+              }
+            >
               LinkedIn
-            </a>
+            </Button>
           </Footer>
+          <Modal show={show} setShow={setShow}>
+            <Form>
+              <h3>I'll reach out to you as soon as I can!</h3>
+              <div>
+                <label htmlFor="email">Email:</label>
+                <input type="email" required name="email" />
+              </div>
+              <Button>Submit</Button>
+            </Form>
+          </Modal>
         </div>
       </div>
     </Router>

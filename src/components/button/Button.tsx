@@ -4,16 +4,13 @@ import styles from './Button.module.css';
 
 interface Props {
   children: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-const Button = (props: Props) => {
+const Button = ({ children, onClick }: Props) => {
   return (
-    <button className={styles.button}>
-      {props.children}
-      <img
-        src="https://github.com/cadgerfeast/pixel-icons/raw/master/png-128/floppy-disk.png"
-        alt="Download"
-      />
+    <button className={styles.button} onClick={onClick}>
+      {children}
     </button>
   );
 };

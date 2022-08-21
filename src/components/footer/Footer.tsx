@@ -6,10 +6,10 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-const Footer = (props: Props) => {
+const Footer = ({ children }: Props) => {
   return (
     <footer>
-      <div className={styles.container}>{props.children} </div>
+      <div className={styles.container}>{children} </div>
     </footer>
   );
 };

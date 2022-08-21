@@ -2,24 +2,12 @@
   display: flex;
   justify-content: center;
   padding: 1rem;
+  margin: 0 auto;
   background: rgba(31, 31, 31, 0.24);
   border-radius: 5px;
+  animation: widen 2.5s 1s ease-out forwards;
 }
 
-.container a {
-  margin: 0 2rem;
-  color: #282c34;
-  background: #a5e8a5;
-  font-size: 1.5rem;
-  padding: 1rem;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: border-radius 200ms ease-out;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.container a:hover,
-.container a:active {
-  background: white;
-  border-radius: 10px;
+.container button {
+  margin: 0 1rem;
 }
