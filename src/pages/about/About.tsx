@@ -1,4 +1,5 @@
 import React from 'react';
+import { saveAs } from 'file-saver';
 
 import styles from './About.module.css';
 
@@ -21,7 +22,9 @@ const About = () => {
       </h2>
       <section className={styles.resume}>
         <h3>Download my resume:</h3>
-        <Button>Download</Button>
+        <a href="http://localhost:8080/resume">
+          <Button>Download</Button>
+        </a>
       </section>
     </div>
   );

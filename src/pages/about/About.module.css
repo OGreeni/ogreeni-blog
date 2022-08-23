@@ -8,7 +8,6 @@
 }
 
 .mainTitle {
-  color: white;
   font-size: 6rem;
 }
 
@@ -19,11 +18,11 @@
 }
 
 .green {
-  color: #a5e8a5;
+  color: #7fc37f;
 }
 
 .resume h3 {
-  color: #a5e8a5;
+  color: #7fc37f;
   font-size: 2rem;
   font-weight: bold;
 }

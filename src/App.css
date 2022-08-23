@@ -5,8 +5,8 @@
 }
 
 *::selection {
-  background-color: #a5e8a5;
-  color: black;
+  background-color: #7fc37f;
+  color: #282c34;
 }
 
 html {
@@ -15,7 +15,6 @@ html {
 
 body {
   margin: 0;
-  background-color: rgb(40, 44, 52);
 }
 
 .container {
@@ -24,5 +23,5 @@ body {
   grid-template-rows: 1fr auto;
   max-width: 70rem;
   margin: 0 auto;
-  color: white;
+  color: #282c34;
 }

@@ -16,7 +16,7 @@
   width: 50%;
   height: 40%;
   animation: modal-fade-in 500ms ease-out forwards;
-  background-color: rgb(40, 44, 52);
+  background-color: white;
   border-radius: 5px;
 }
 
