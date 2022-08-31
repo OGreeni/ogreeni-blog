@@ -26,6 +26,9 @@ const TopNav = () => {
           <Link href="/about">
             <a className={styles.link}>About</a>
           </Link>
+          <Link href="/login">
+            <a className={styles.link}>Login</a>
+          </Link>
           <Link href="/about">
             <Button>Contact</Button>
           </Link>

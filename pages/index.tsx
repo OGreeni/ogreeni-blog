@@ -1,10 +1,21 @@
 import React from 'react';
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
+import matter from 'gray-matter';
 
 import Layout from '../components/layout';
 import styles from './index.module.css';
+import { getSortedPostsData } from '../utils/posts';
 
-const Home = () => {
+interface PostData extends matter.GrayMatterFile<string> {
+  id: string;
+}
+
+interface Props {
+  postsData: PostData[];
+}
+
+const Home = ({ postsData }: Props) => {
   return (
     <Layout home>
       <Head>
@@ -18,6 +29,16 @@ const Home = () => {
       </section>
     </Layout>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const postsData = getSortedPostsData();
+
+  return {
+    props: {
+      postsData,
+    },
+  };
 };
 
 export default Home;
