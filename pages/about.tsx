@@ -1,8 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
 
-import Layout from '../components/layout';
 import styles from './about.module.css';
+import Layout from '../components/layout';
+import Button from '../components/button';
 
 const About = () => {
   return (
@@ -11,14 +12,17 @@ const About = () => {
         <title>About Me | Omri Green</title>
       </Head>
       <section className={styles.desc}>
-        <p>
-          I'm a full-stack web developer, mainly using the MERN stack. As of
-          now, I'm pursuing my software engineering dream by studying computer
-          science at Rutgers University.
-        </p>
-        <h2>Download my resume:</h2>
+        <article>
+          <h2>Who am I?</h2>
+          <p>
+            I'm a <b>full-stack</b> web developer, mainly using the MERN stack.
+            As of now, I'm pursuing my software engineering dream by studying
+            computer science at <b>Rutgers University</b>.
+          </p>
+        </article>
+        <h3>Download my resume:</h3>
         <a href="http://localhost:8080/resume">
-          <button>Download</button>
+          <Button>Download</Button>
         </a>
       </section>
     </Layout>

@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import styles from './topnav.module.css';
+import Button from './button';
 
 const TopNav = () => {
   return (
@@ -15,14 +16,18 @@ const TopNav = () => {
           </Link>
         </div>
         <div>
-          <Link href="/about">
-            <a className={styles.link}>GitHub</a>
-          </Link>
+          <a
+            className={styles.link}
+            href="http://github.com/OGreeni"
+            target="_blank"
+          >
+            GitHub
+          </a>
           <Link href="/about">
             <a className={styles.link}>About</a>
           </Link>
           <Link href="/about">
-            <button>Contact</button>
+            <Button>Contact</Button>
           </Link>
         </div>
       </div>
