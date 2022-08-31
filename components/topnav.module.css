@@ -1,0 +1,53 @@
+.topNav {
+  top: 0;
+  position: fixed;
+  background: white;
+  height: 6rem;
+  width: 100%;
+  border-bottom: 1px solid rgb(197, 197, 197);
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+.link {
+  color: black;
+  opacity: 0.6;
+  font-size: 1.25rem;
+  margin-right: 1rem;
+  transition: opacity 200ms linear;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+.brand {
+  font-size: 2rem;
+}
+
+.container button {
+  color: white;
+  font: inherit;
+  font-weight: 400;
+  cursor: pointer;
+  margin-left: 1rem;
+  padding: 1rem;
+  background-color: #588958;
+  border: 2px solid #588958;
+  border-radius: 10px;
+  transition: background-color 200ms linear;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.container button:hover {
+  background-color: white;
+  color: #588958;
+}
