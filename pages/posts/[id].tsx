@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
+import Markdown from 'markdown-to-jsx';
 
 import Layout from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../utils/posts';
@@ -8,6 +9,7 @@ import { getAllPostIds, getPostData } from '../../utils/posts';
 interface Props {
   postData: {
     id: string;
+    markdown: string;
     [key: string]: any;
   };
 }
@@ -21,6 +23,7 @@ const Post = ({ postData }: Props) => {
       {postData.date}
       <br />
       <h1>{postData.title}</h1>
+      <Markdown>{postData.markdown}</Markdown>
     </Layout>
   );
 };
@@ -37,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = getPostData(params.id as string);
+  const postData = await getPostData(params.id as string);
   return {
     props: {
       postData,

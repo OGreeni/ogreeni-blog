@@ -41,7 +41,7 @@ export const getAllPostIds = () => {
   return ids;
 };
 
-export const getPostData = (id: string) => {
+export const getPostData = async (id: string) => {
   const fullPath = path.join(postsDir, id + '.md');
   const content = fs.readFileSync(fullPath, 'utf8');
 
@@ -50,5 +50,6 @@ export const getPostData = (id: string) => {
   return {
     id,
     ...matterResult.data,
+    markdown: matterResult.content,
   };
 };
