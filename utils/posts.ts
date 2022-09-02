@@ -15,11 +15,15 @@ export const getSortedPostsData = () => {
     const fileContents = fs.readFileSync(fullPath, 'utf-8');
     const matterResult = matter(fileContents);
 
-    return { ...matterResult, id };
+    return { id, ...matterResult.data } as {
+      id: string;
+      date: string;
+      [key: string]: any;
+    };
   });
 
   postsData.sort((a, b) => {
-    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
   return postsData;

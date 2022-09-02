@@ -1,14 +1,15 @@
 import React from 'react';
 import Head from 'next/head';
 import { GetStaticProps } from 'next';
-import matter from 'gray-matter';
 
 import Layout from '../components/layout';
 import styles from './index.module.css';
 import { getSortedPostsData } from '../utils/posts';
 
-interface PostData extends matter.GrayMatterFile<string> {
+interface PostData {
   id: string;
+  date: string;
+  [key: string]: any;
 }
 
 interface Props {
@@ -21,11 +22,23 @@ const Home = ({ postsData }: Props) => {
       <Head>
         <title>Home | Omri Green</title>
       </Head>
-      <section className={styles.desc}>
+      <section className={styles.description}>
         <p>
           I'm a software developer and student at <b>Rutgers University</b>,
           passionate about all-things web dev.
         </p>
+      </section>
+      <section className={styles.blog}>
+        <h1>My recent articles</h1>
+        <ul>
+          {postsData.map(({ id, title, date }) => (
+            <li key={id}>
+              <span className={styles.date}>{date}</span>
+              <br />
+              {title}
+            </li>
+          ))}
+        </ul>
       </section>
     </Layout>
   );
