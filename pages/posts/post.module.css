@@ -1,5 +1,6 @@
 .title {
   font-weight: 700;
+  font-size: 2.5rem;
 }
 
 .author {
@@ -22,6 +23,6 @@
   font-size: 1.25rem;
 }
 
-.article code {
-  display: block;
+.article pre {
+  border-radius: 5px;
 }
