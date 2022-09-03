@@ -36,9 +36,9 @@ const Home = ({ postsData }: Props) => {
           {postsData.map(({ id, title, date }) => (
             <Link href={`/posts/${id}`}>
               <li key={id}>
-                <span className={styles.date}>{date}</span>
-                <br />
                 {title}
+                <br />
+                <small className={styles.date}>{date}</small>
               </li>
             </Link>
           ))}

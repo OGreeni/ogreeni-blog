@@ -32,6 +32,7 @@
 }
 
 .date {
+  font-size: 1.125rem;
+  font-weight: bolder;
   color: #588958;
-  font-weight: 700;
 }

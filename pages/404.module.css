@@ -1,0 +1,10 @@
+.errorTitle {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.statusCode {
+  font-weight: 700;
+  color: #588958;
+}
