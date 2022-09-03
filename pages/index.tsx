@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { GetStaticProps } from 'next';
 
 import Layout from '../components/layout';
@@ -24,19 +25,22 @@ const Home = ({ postsData }: Props) => {
       </Head>
       <section className={styles.description}>
         <p>
-          I'm a software developer and student at <b>Rutgers University</b>,
-          passionate about all-things web dev.
+          I'm a software developer and student at{' '}
+          <strong>Rutgers University</strong>, passionate about all-things web
+          dev.
         </p>
       </section>
       <section className={styles.blog}>
         <h1>My recent articles</h1>
         <ul>
           {postsData.map(({ id, title, date }) => (
-            <li key={id}>
-              <span className={styles.date}>{date}</span>
-              <br />
-              {title}
-            </li>
+            <Link href={`/posts/${id}`}>
+              <li key={id}>
+                <span className={styles.date}>{date}</span>
+                <br />
+                {title}
+              </li>
+            </Link>
           ))}
         </ul>
       </section>

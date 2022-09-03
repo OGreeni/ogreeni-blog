@@ -1,0 +1,27 @@
+.title {
+  font-weight: 700;
+}
+
+.author {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  color: #7a7a7a;
+}
+
+.author a {
+  color: #588958;
+  font-weight: 700;
+}
+
+.author a:hover {
+  border-bottom: 1px solid #588958;
+  position: relative;
+}
+
+.article {
+  font-size: 1.25rem;
+}
+
+.article code {
+  display: block;
+}
