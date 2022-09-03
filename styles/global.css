@@ -3,7 +3,6 @@
 * {
   box-sizing: border-box;
   font-weight: 300;
-  line-height: 2rem;
 }
 
 *::selection {
@@ -26,4 +25,8 @@ a {
 
 strong {
   font-weight: 700;
+}
+
+p {
+  line-height: 2rem;
 }
