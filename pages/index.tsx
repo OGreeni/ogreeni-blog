@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
@@ -18,6 +18,14 @@ interface Props {
 }
 
 const Home = ({ postsData }: Props) => {
+  useEffect(() => {
+    fetch('/api/email')
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+      });
+  }, []);
+
   return (
     <Layout home>
       <Head>

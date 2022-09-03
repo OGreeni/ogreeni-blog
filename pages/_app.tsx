@@ -1,10 +1,10 @@
 import React from 'react';
+import type { AppProps } from 'next/app';
 
 import TopNav from '../components/topnav';
-
 import '../styles/global.css';
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <TopNav />
