@@ -38,8 +38,14 @@
   margin-left: 1rem;
 }
 
+.contactForm h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
 .contactForm label {
   display: block;
+  position: relative;
   text-align: left;
 }
 
@@ -54,12 +60,28 @@
   border-bottom: 1px solid #6a7070;
 }
 
-.contactForm input:focus {
-  /* ANIMATION -- SAME AS PEARSON LOGIN PAGE */
+.contactForm input:focus + .inputUnderline::after {
+  position: absolute;
+  content: '';
+  display: block;
+  background: #588958;
+  width: 62.5%;
+  height: 4px;
+  animation: underline-expand 100ms forwards;
 }
 
 .contactForm button {
   display: block;
   margin: 1rem auto;
   box-shadow: none;
+}
+
+@keyframes underline-expand {
+  from {
+    transform-origin: center;
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }

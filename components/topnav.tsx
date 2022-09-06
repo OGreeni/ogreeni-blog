@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import Link from 'next/link';
 
 import styles from './topnav.module.css';
@@ -6,12 +6,27 @@ import Button from './button';
 import Modal from './modal';
 
 const ContactForm = () => {
+  const [emailValue, setEmailValue] = useState('');
+
+  const formOnSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setEmailValue(' ');
+  };
+
   return (
-    <form className={styles.contactForm}>
+    <form className={styles.contactForm} onSubmit={formOnSubmit}>
       <h3>Thank you for your interest.</h3>
       <h4>I'll reach out to you as soon as I can!</h4>
       <label htmlFor="email">Email:</label>
-      <input type="email" name="email" id="email" />
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required
+        value={emailValue}
+        onChange={(e) => setEmailValue(e.target.value)}
+      />
+      <span className={styles.inputUnderline}></span>
       <Button onClick={() => console.log('Clicked')}>Submit</Button>
     </form>
   );
