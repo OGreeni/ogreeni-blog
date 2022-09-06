@@ -7,7 +7,9 @@ import Modal from './modal';
 
 const ContactForm = () => {
   return (
-    <form>
+    <form className={styles.contactForm}>
+      <h3>Thank you for your interest.</h3>
+      <h4>I'll reach out to you as soon as I can!</h4>
       <label htmlFor="email">Email:</label>
       <input type="email" name="email" id="email" />
       <Button onClick={() => console.log('Clicked')}>Submit</Button>
@@ -17,11 +19,6 @@ const ContactForm = () => {
 
 const TopNav = () => {
   const [showModal, setShowModal] = useState(false);
-  console.log(showModal);
-
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
 
   return (
     <>
@@ -48,11 +45,13 @@ const TopNav = () => {
             <Link href="/login">
               <a className={styles.link}>Login</a>
             </Link>
-            <Button onClick={handleShowModal}>Contact</Button>
+            <Button onClick={() => setShowModal(true)}>Contact</Button>
           </div>
         </div>
       </nav>
-      <Modal show={showModal}>Test</Modal>
+      <Modal show={showModal} setShow={setShowModal}>
+        <ContactForm />
+      </Modal>
     </>
   );
 };

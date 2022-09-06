@@ -1,3 +1,15 @@
+.modalContainer {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
 .backdrop {
   position: fixed;
   display: flex;
@@ -15,6 +27,10 @@
 
 .modal {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
   height: 30rem;
   width: 40rem;
   background-color: white;
@@ -23,6 +39,10 @@
   opacity: 0.5;
   border-radius: 5px;
   text-align: center;
+}
+
+.modal form {
+  margin-top: -5rem;
 }
 
 @keyframes backdrop-fade-in {

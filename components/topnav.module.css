@@ -37,3 +37,29 @@
 .container button {
   margin-left: 1rem;
 }
+
+.contactForm label {
+  display: block;
+  text-align: left;
+}
+
+.contactForm input {
+  display: block;
+  margin-top: 1rem;
+  width: 25rem;
+  font-size: 1.125rem;
+  height: 2rem;
+  outline: 0;
+  border: none;
+  border-bottom: 1px solid #6a7070;
+}
+
+.contactForm input:focus {
+  /* ANIMATION -- SAME AS PEARSON LOGIN PAGE */
+}
+
+.contactForm button {
+  display: block;
+  margin: 1rem auto;
+  box-shadow: none;
+}
