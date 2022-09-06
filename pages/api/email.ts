@@ -15,14 +15,14 @@ const transporter = nodemailer.createTransport({
 
 const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
   //   const email: string = req.body.email;
-  const email = 'omri.green1@gmail.com';
+  const email = 'test@gmail.com';
 
   transporter.sendMail(
     {
       from: 'omri.green1@outlook.com',
       to: email,
       subject: 'Omri Green: Form Submitted Successfully',
-      text: `Thank you for your interest! I've received your email (${email}) and will reach out to you as soon as I can!`,
+      text: `Thank you for your interest! I've received your email (${email}) and will reach out to you as soon as I can.`,
     },
     (err, info) => {
       if (err) {

@@ -22,7 +22,13 @@ const About = () => {
         </article>
         <h3>Download my resume:</h3>
         <a href="http://localhost:8080/resume">
-          <Button>Download</Button>
+          <Button
+            onClick={() => {
+              console.log('test');
+            }}
+          >
+            Download
+          </Button>
         </a>
       </section>
     </Layout>
