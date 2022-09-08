@@ -78,7 +78,6 @@
 
 @keyframes underline-expand {
   from {
-    transform-origin: center;
     transform: scale(0);
   }
   to {

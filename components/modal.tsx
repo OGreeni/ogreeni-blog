@@ -14,7 +14,12 @@ const Modal = ({ children, show, setShow }: Props) => {
       <>
         <div className={styles.modalContainer}>
           <div className={styles.backdrop} onClick={() => setShow(false)} />
-          <div className={styles.modal}>{children}</div>
+          <div className={styles.modal}>
+            <div onClick={() => setShow(false)}>
+              <img src="/images/close.png" alt="close" />{' '}
+            </div>
+            {children}
+          </div>
         </div>
       </>
     );

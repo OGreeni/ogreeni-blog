@@ -10,14 +10,24 @@ const ContactForm = () => {
 
   const formOnSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setEmailValue(' ');
-  };
 
+    const formData = new FormData();
+    formData.append('email', emailValue);
+
+    setEmailValue('');
+
+    fetch('/api/email', {
+      method: 'POST',
+      body: formData,
+    });
+  };
   return (
     <form className={styles.contactForm} onSubmit={formOnSubmit}>
       <h3>Thank you for your interest.</h3>
       <h4>I'll reach out to you as soon as I can!</h4>
-      <label htmlFor="email">Email:</label>
+      <label htmlFor="email" className={styles.inputLabel}>
+        Email:
+      </label>
       <input
         type="email"
         name="email"

@@ -1,5 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
+import multiparty from 'multiparty';
+import { Console } from 'console';
 
 type Data = {
   email: string;
@@ -13,9 +15,20 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
-  //   const email: string = req.body.email;
-  const email = 'test@gmail.com';
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  let email: string;
+
+  const form = new multiparty.Form();
+  const data = (await new Promise((resolve, reject) => {
+    form.parse(req, (err, fields) => {
+      if (err) {
+        reject({ err });
+      }
+      resolve({ fields });
+    });
+  })) as { fields: { email: string } }; // temp solution
+
+  email = data.fields.email;
 
   transporter.sendMail(
     {
@@ -26,7 +39,6 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
     },
     (err, info) => {
       if (err) {
-        console.log(err);
         res.status(500);
       } else {
         res.status(200).json({ email });
@@ -36,3 +48,9 @@ const handler = (req: NextApiRequest, res: NextApiResponse<Data>) => {
 };
 
 export default handler;
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};

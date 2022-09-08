@@ -35,7 +35,7 @@
   width: 40rem;
   background-color: white;
   transform: translateY(-30%);
-  animation: modal-fade-in 700ms forwards;
+  animation: modal-fade-in 500ms forwards;
   opacity: 0.5;
   border-radius: 5px;
   text-align: center;
@@ -43,6 +43,19 @@
 
 .modal form {
   margin-top: -5rem;
+}
+
+.modal img {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  transition: background-color 100ms;
+}
+
+.modal img:hover {
+  background: rgba(9, 9, 9, 0.075);
 }
 
 @keyframes backdrop-fade-in {
