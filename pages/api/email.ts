@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 import multiparty from 'multiparty';
-import { Console } from 'console';
 
 type Data = {
   email: string;
@@ -26,25 +25,59 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       }
       resolve({ fields });
     });
-  })) as { fields: { email: string } }; // temp solution
+  })) as { fields: { email: string } };
 
   email = data.fields.email;
 
-  transporter.sendMail(
-    {
+  // promisify transporter.sendMail to await sending the email
+  const sendMailAsync = ({
+    from,
+    to,
+    subject,
+    text,
+  }: {
+    from: string;
+    to: string;
+    subject: string;
+    text: string;
+  }) => {
+    return new Promise((resolve, reject) => {
+      transporter.sendMail(
+        {
+          from,
+          to,
+          subject,
+          text,
+        },
+        (err, info) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve(info);
+          }
+        }
+      );
+    });
+  };
+  try {
+    await sendMailAsync({
       from: 'omri.green1@outlook.com',
       to: email,
-      subject: 'Omri Green: Form Submitted Successfully',
-      text: `Thank you for your interest! I've received your email (${email}) and will reach out to you as soon as I can.`,
-    },
-    (err, info) => {
-      if (err) {
-        res.status(500);
-      } else {
-        res.status(200).json({ email });
-      }
-    }
-  );
+      subject: 'omrigreen.com: Form Submitted Successfully',
+      text: `Thank you for your interest! I've received your email (${email}) and will reach back to you as soon as I can.`,
+    });
+
+    await sendMailAsync({
+      from: 'omri.green1@outlook.com',
+      to: 'omri.green1@gmail.com',
+      subject: 'omrigreen.com: Form Submission Alert',
+      text: `email: ${email}`,
+    });
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+
+  res.status(200).json({ email });
 };
 
 export default handler;
