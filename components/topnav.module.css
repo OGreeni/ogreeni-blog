@@ -76,6 +76,17 @@
   box-shadow: none;
 }
 
+.success {
+  position: absolute;
+  top: 350px;
+  width: 90%;
+  padding: 1rem;
+  background: #588958;
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+}
+
 @keyframes underline-expand {
   from {
     transform: scale(0);
