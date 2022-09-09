@@ -21,15 +21,9 @@ const About = () => {
           </p>
         </article>
         <h3>Download my resume:</h3>
-        <a href="http://localhost:8080/resume">
-          <Button
-            onClick={() => {
-              console.log('test');
-            }}
-          >
-            Download
-          </Button>
-        </a>
+        <Button onClick={() => window.open('/pdf/resume.pdf', '_blank')}>
+          Download
+        </Button>
       </section>
     </Layout>
   );
