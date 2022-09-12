@@ -26,3 +26,24 @@
 .article pre {
   border-radius: 5px;
 }
+
+.interact {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.interact button {
+  margin: 0 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.interact img {
+  margin: 0 2rem;
+}
+
+.interact img:hover {
+  background: green;
+}
