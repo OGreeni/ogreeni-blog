@@ -6,31 +6,44 @@ import Button from './button';
 import Modal from './modal';
 
 const ContactForm = () => {
+  const [subjectValue, setSubjectValue] = useState('');
   const [emailValue, setEmailValue] = useState('');
-  const [responseOk, setResponseOk] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const formOnSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     const formData = new FormData();
+    formData.append('subject', subjectValue);
     formData.append('email', emailValue);
 
+    setSubjectValue('');
     setEmailValue('');
 
-    const response = await fetch('/api/email', {
+    fetch('/api/email', {
       method: 'POST',
       body: formData,
     });
 
-    if (response.ok) {
-      setResponseOk(true);
-    }
+    setFormSubmitted(true);
   };
   return (
     <>
       <form className={styles.contactForm} onSubmit={formOnSubmit}>
         <h3>Thank you for your interest.</h3>
         <h4>I'll reach out to you as soon as I can!</h4>
+        <label htmlFor="subject" className={styles.inputLabel}>
+          Subject:
+        </label>
+        <input
+          type="text"
+          name="subject"
+          id="subject"
+          required
+          value={subjectValue}
+          onChange={(e) => setSubjectValue(e.target.value)}
+        />
+        <span className={styles.inputUnderline}></span>
         <label htmlFor="email" className={styles.inputLabel}>
           Email:
         </label>
@@ -45,7 +58,7 @@ const ContactForm = () => {
         <span className={styles.inputUnderline}></span>
         <Button onClick={() => console.log('Clicked')}>Submit</Button>
       </form>
-      {responseOk && (
+      {formSubmitted && (
         <div className={styles.success}>Form submitted successfully!</div>
       )}
     </>

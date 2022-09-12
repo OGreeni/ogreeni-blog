@@ -15,6 +15,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  let subject: string;
   let email: string;
 
   const form = new multiparty.Form();
@@ -25,8 +26,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
       }
       resolve({ fields });
     });
-  })) as { fields: { email: string } };
+  })) as { fields: { subject: string; email: string } };
 
+  subject = data.fields.subject;
   email = data.fields.email;
 
   // promisify transporter.sendMail to await sending the email
@@ -70,8 +72,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     await sendMailAsync({
       from: 'omri.green1@outlook.com',
       to: 'omri.green1@gmail.com',
-      subject: 'omrigreen.com: Form Submission Alert',
-      text: `email: ${email}`,
+      subject: `omrigreen.com: Form Submission Alert`,
+      text: `email: ${email}\nsubject: ${subject}`,
     });
   } catch (err) {
     return res.status(500).json(err);
