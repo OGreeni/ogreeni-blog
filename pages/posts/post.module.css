@@ -41,9 +41,12 @@
 }
 
 .interact img {
-  margin: 0 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 100ms;
 }
 
 .interact img:hover {
-  background: green;
+  background: rgba(9, 9, 9, 0.075);
 }
