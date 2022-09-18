@@ -1,18 +1,20 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 
+import googleLogo from '/images/googlelogo.png';
+
 import styles from './topnav.module.css';
 import Button from './button';
 import Modal from './modal';
 import ContactForm from './contactForm';
 
 import { UserContext } from '../context/authContext';
-import { logout } from '../firebase/firebase';
+import { signInWithGoogle, logout } from '../firebase/firebase';
 
 const TopNav = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const { email, loggedIn } = useContext(UserContext);
+  const { loggedIn } = useContext(UserContext);
 
   return (
     <>
@@ -38,20 +40,19 @@ const TopNav = () => {
             </Link>
 
             {loggedIn && (
-              // <Link href="/logout">
-              //   <a className={styles.link}>Logout</a>
-              // </Link>
-              <button onClick={() => logout()}>Logout</button>
+              <Button onClick={() => logout()} image="/images/googlelogo.png">
+                Sign out
+              </Button>
             )}
 
             {!loggedIn && (
               <>
-                <Link href="/login">
-                  <a className={styles.link}>Login</a>
-                </Link>
-                <Link href="/register">
-                  <a className={styles.link}>Register</a>
-                </Link>
+                <Button
+                  onClick={signInWithGoogle}
+                  image="/images/googlelogo.png"
+                >
+                  Sign in
+                </Button>
               </>
             )}
             <Button onClick={() => setShowModal(true)}>Contact</Button>

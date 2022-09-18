@@ -11,6 +11,7 @@
     "@types/nodemailer": "^6.4.5",
     "@types/react": "^18.0.17",
     "@types/react-syntax-highlighter": "^15.5.5",
+    "firebase": "^9.10.0",
     "gray-matter": "^4.0.3",
     "markdown-to-jsx": "^7.1.7",
     "multiparty": "^4.2.3",
