@@ -1,0 +1,57 @@
+.contactForm h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.contactForm label {
+  margin-top: 1rem;
+  display: block;
+  position: relative;
+  text-align: left;
+}
+
+.contactForm input {
+  display: block;
+  margin-top: 1rem;
+  width: 25rem;
+  font-size: 1.125rem;
+  height: 2rem;
+  outline: 0;
+  border: none;
+  border-bottom: 1px solid #6a7070;
+}
+
+.contactForm input:focus + .inputUnderline::after {
+  position: absolute;
+  content: '';
+  display: block;
+  background: #588958;
+  width: 62.5%;
+  height: 4px;
+  animation: underline-expand 100ms forwards;
+}
+
+.contactForm button {
+  display: block;
+  margin: 1rem auto;
+  box-shadow: none;
+}
+
+.success {
+  position: absolute;
+  top: 24rem;
+  width: 50%;
+  padding: 1rem;
+  color: #588958;
+  border: 1px solid #588958;
+  border-radius: 5px;
+}
+
+@keyframes underline-expand {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
