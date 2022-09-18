@@ -1,10 +1,10 @@
+// TODO: REDIRECT TO HOME PAGE IF USER IS AUTHENTICATED
+
 import React, { useEffect, useState } from 'react';
 import {
-  auth,
   logInWithEmailAndPassword,
   signInWithGoogle,
 } from '../firebase/firebase';
-import { useAuthState } from 'react-firebase-hooks/auth';
 
 import Layout from '../components/layout';
 import styles from './login.module.css';
@@ -12,18 +12,6 @@ import styles from './login.module.css';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [user, loading, error] = useAuthState(auth);
-
-  useEffect(() => {
-    if (loading) {
-      // loading screen
-      console.log('LOADING...');
-      return;
-    }
-    if (user) {
-      console.log('USER LOGGED IN');
-    }
-  }, [loading]);
 
   return (
     <Layout>

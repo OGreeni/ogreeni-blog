@@ -1,5 +1,38 @@
-.inputLabel {
-  background: green;
+.formInputLabel {
+  margin-top: 1rem;
+  display: block;
+  position: relative;
+  text-align: left;
 }
 
+.formInput {
+  display: block;
+  margin-top: 1rem;
+  width: 25rem;
+  font-size: 1.125rem;
+  height: 2rem;
+  outline: 0;
+  border: none;
+  border-bottom: 1px solid #6a7070;
+}
+
+.formInput input:focus + .formInputUnderline::after {
+  position: absolute;
+  content: '';
+  display: block;
+  background: #588958;
+  width: 62.5%;
+  height: 4px;
+  animation: underline-expand 100ms forwards;
+}
+
+@keyframes underline-expand {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
 /* TODO: MAKE FORM STYLES REUSABLE */
+/* WORK IN PROGRESS */

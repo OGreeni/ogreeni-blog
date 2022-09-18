@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 
 import styles from './topnav.module.css';
@@ -6,8 +6,12 @@ import Button from './button';
 import Modal from './modal';
 import ContactForm from './contactForm';
 
+import { UserContext } from '../context/authContext';
+
 const TopNav = () => {
   const [showModal, setShowModal] = useState(false);
+
+  const { email, loggedIn } = useContext(UserContext);
 
   return (
     <>
@@ -31,9 +35,23 @@ const TopNav = () => {
             <Link href="/about">
               <a className={styles.link}>About</a>
             </Link>
-            <Link href="/login">
-              <a className={styles.link}>Login</a>
-            </Link>
+
+            {loggedIn && (
+              <Link href="/logout">
+                <a className={styles.link}>Logout</a>
+              </Link>
+            )}
+
+            {!loggedIn && (
+              <>
+                <Link href="/login">
+                  <a className={styles.link}>Login</a>
+                </Link>
+                <Link href="/register">
+                  <a className={styles.link}>Register</a>
+                </Link>
+              </>
+            )}
             <Button onClick={() => setShowModal(true)}>Contact</Button>
           </div>
         </div>

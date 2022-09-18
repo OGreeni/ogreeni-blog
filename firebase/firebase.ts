@@ -16,15 +16,17 @@ import {
   where,
   addDoc,
 } from 'firebase/firestore';
+
 const firebaseConfig = {
-  apiKey: 'AIzaSyDIXJ5YT7hoNbBFqK3TBcV41-TzIO-7n7w',
-  authDomain: 'fir-auth-6edd8.firebaseapp.com',
-  projectId: 'fir-auth-6edd8',
-  storageBucket: 'fir-auth-6edd8.appspot.com',
-  messagingSenderId: '904760319835',
-  appId: '1:904760319835:web:44fd0d957f114b4e51447e',
-  measurementId: 'G-Q4TYKH9GG7',
+  apiKey: 'AIzaSyDKn_bfUGY5GpPEfeDVpV7HI24enoGbGTw',
+  authDomain: 'ogreeni-blog-b315e.firebaseapp.com',
+  projectId: 'ogreeni-blog-b315e',
+  storageBucket: 'ogreeni-blog-b315e.appspot.com',
+  messagingSenderId: '104223695787',
+  appId: '1:104223695787:web:996c390dad844fc1f368ee',
+  measurementId: 'G-QG759LDHXY',
 };
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -48,6 +50,7 @@ const signInWithGoogle = async () => {
     alert(err.message);
   }
 };
+
 const logInWithEmailAndPassword = async (email: string, password: string) => {
   try {
     await signInWithEmailAndPassword(auth, email, password);
@@ -56,6 +59,7 @@ const logInWithEmailAndPassword = async (email: string, password: string) => {
     alert(err.message);
   }
 };
+
 const registerWithEmailAndPassword = async (
   name: string,
   email: string,
@@ -75,6 +79,7 @@ const registerWithEmailAndPassword = async (
     alert(err.message);
   }
 };
+
 const sendPasswordReset = async (email: string) => {
   try {
     await sendPasswordResetEmail(auth, email);
@@ -84,9 +89,31 @@ const sendPasswordReset = async (email: string) => {
     alert(err.message);
   }
 };
+
 const logout = () => {
   signOut(auth);
 };
+
+const onAuthStateChange = (
+  callback: ({
+    loggedIn,
+    email,
+  }: {
+    loggedIn: boolean;
+    email: string | null;
+  }) => void
+) => {
+  return auth.onAuthStateChanged((user) => {
+    if (user) {
+      callback({ loggedIn: true, email: user.email });
+      console.log('Logged In');
+    } else {
+      callback({ loggedIn: false, email: null });
+      console.log('Logged out');
+    }
+  });
+};
+
 export {
   auth,
   db,
@@ -95,4 +122,5 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
+  onAuthStateChange,
 };
