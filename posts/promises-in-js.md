@@ -3,12 +3,14 @@ title: 'What Are JavaScript Promises?'
 date: 'September 12, 2022'
 ---
 
+# What is a promise?
+
 Promises, by definition, are objects that encapsulate the result of an asynchronous operation. They are a much cleaner alternative to callbacks, and enable working with **asynchronous operations** in a much leaner and more readable way.
 
 A promise can take on one of three states: **Pending**, **fulfilled**, or **rejected**. Let's explore them in more detail.
 
 Once the promise has been initialized, and its result hasn't been reached, it is said to be **pending**.
-Once the result of the promise has been reached, it is said to be **resolved**. If the result was successful, the promise has been **fulfilled**. Otherwise, it has been **rejected**.
+Once the result of the promise has been reached, it is said to be **settledd**. If the result was successful, the promise has been **fulfilled**. Otherwise, it has been **rejected**.
 
 With the terminology out of the way, let's look at a basic example. We'll simulate an asynchronous operation using the `setTimeout` function. Realistically, this would be something like waiting on an HTTP request.
 
@@ -30,9 +32,7 @@ myPromise.then(
   (value) => console.log(value),
   (error) => console.log(error)
 );
-
-// logs:
-// 5
+// logs: 5
 ```
 
 As you can see, the `Promise` constructor takes a callback function as an argument, which in turn receives two other callbacks, `resolve` and `reject`. Promises can either be resolved with a _value_, or rejected with a _reason_.

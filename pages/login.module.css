@@ -1,5 +1,5 @@
-.unavailable {
-  margin-top: 10rem;
-  text-align: center;
-  font-size: 1.5rem;
+.formContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
 }
