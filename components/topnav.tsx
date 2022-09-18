@@ -7,6 +7,7 @@ import Modal from './modal';
 import ContactForm from './contactForm';
 
 import { UserContext } from '../context/authContext';
+import { logout } from '../firebase/firebase';
 
 const TopNav = () => {
   const [showModal, setShowModal] = useState(false);
@@ -37,9 +38,10 @@ const TopNav = () => {
             </Link>
 
             {loggedIn && (
-              <Link href="/logout">
-                <a className={styles.link}>Logout</a>
-              </Link>
+              // <Link href="/logout">
+              //   <a className={styles.link}>Logout</a>
+              // </Link>
+              <button onClick={() => logout()}>Logout</button>
             )}
 
             {!loggedIn && (

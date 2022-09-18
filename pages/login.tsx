@@ -1,6 +1,6 @@
 // TODO: REDIRECT TO HOME PAGE IF USER IS AUTHENTICATED
 
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import {
   logInWithEmailAndPassword,
   signInWithGoogle,
@@ -43,10 +43,10 @@ const Login = () => {
         <button onClick={() => logInWithEmailAndPassword(email, password)}>
           Login
         </button>
-        <button onClick={signInWithGoogle}>Login with Google</button>
-        <div>FORGOT PASSWORD</div>
-        <div>Don't have an account? Register</div>
       </form>
+      <button onClick={signInWithGoogle}>Login with Google</button>
+      <div>FORGOT PASSWORD</div>
+      <div>Don't have an account? Register</div>
     </Layout>
   );
 };
