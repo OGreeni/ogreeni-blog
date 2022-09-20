@@ -40,4 +40,15 @@ In vanilla JavaScript, the `await` keyword can only be used inside `async` funct
 
 # Error handling with async-await
 
-If the promise is rejected, the rejection reason is thrown. We can handle these errors using a `try-catch` block:
+As demonstrated, if a promise resolves normally, the result in returned. In the case of a rejection, however, the error is thrown. We can handle these error with a simple `try-catch` block:
+
+```js
+const catchAsync = async () => {
+  try {
+    const res = await someAsyncOperation(123);
+    console.log(res);
+  } catch (err) {
+    console.error(err);
+  }
+};
+```
