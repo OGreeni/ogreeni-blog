@@ -1,3 +1,8 @@
+---
+title: 'Promises in JavaScript'
+date: September 5, 2022
+---
+
 # What are JavaScript promises?
 
 Promises, by definition, are objects that encapsulate the result of an asynchronous operation. They are a much cleaner alternative to callbacks and enable working with async code in a much cleaner and more readable way.
