@@ -1,60 +1,145 @@
----
-title: 'What Are JavaScript Promises?'
-date: 'September 12, 2022'
----
+# What are JavaScript promises?
 
-# What is a promise?
+Promises, by definition, are objects that encapsulate the result of an asynchronous operation. They are a much cleaner alternative to callbacks and enable working with async code in a much cleaner and more readable way.
 
-Promises, by definition, are objects that encapsulate the result of an asynchronous operation. They are a much cleaner alternative to callbacks, and enable working with **asynchronous operations** in a much leaner and more readable way.
+A promise can take on one of three states:
+**Pending**, **fulfilled**, or **rejected**. Let’s explore them in more detail.
 
-A promise can take on one of three states: **Pending**, **fulfilled**, or **rejected**. Let's explore them in more detail.
+A promise is initially **pending**. Once its result has been reached, and it is either **resolved** or **rejected**, it is said to be **settled**. If the promise was successful, i.e. it resolved to a value, it is said to be **fulfilled**.
 
-Once the promise has been initialized, and its result hasn't been reached, it is said to be **pending**.
-Once the result of the promise has been reached, it is said to be **settledd**. If the result was successful, the promise has been **fulfilled**. Otherwise, it has been **rejected**.
-
-With the terminology out of the way, let's look at a basic example. We'll simulate an asynchronous operation using the `setTimeout` function. Realistically, this would be something like waiting on an HTTP request.
+Consider the following example:
 
 ```js
 const myPromise = new Promise((resolve, reject) => {
-  const error = false;
   let value;
+  let errors = false;
   setTimeout(() => {
-    value = 5;
-    if (error) {
+    if (errors) {
       reject('An error occured.');
-    } else {
-      resolve(value);
     }
+
+    value = 5;
+    resolve(value);
   }, 1000);
 });
 
 myPromise.then(
   (value) => console.log(value),
-  (error) => console.log(error)
+  (reason) => console.error(reason)
 );
-// logs: 5
+
+// logs (after 1 second):
+// 5
 ```
 
-As you can see, the `Promise` constructor takes a callback function as an argument, which in turn receives two other callbacks, `resolve` and `reject`. Promises can either be resolved with a _value_, or rejected with a _reason_.
-In the case our promise was successful, we call the `resolve()` callback and provide the value to be passed on. Otherwise, we provide the reason for the error.
-The `.then()` block that comes right after will be called asynchronously, and only _after_ the promise has been resolved or rejected.
-It accepts two (optional) callback arguments, the first being for the success case, and the second being for the failed case. The callbacks will receive their respective value/reason as an argument.
-An alternative and more common syntax would be to use the `.catch()` block in conjunction with `.then()`.
-The previous example could also be written as:
+As you can tell, the `Promise` constructor takes a callback function as an argument, which in turn receives two other callbacks, `resolve` and `reject`. Promises can either be resolved with a **value**, or rejected with a **reason**. To resolve a promise, we simply call the `resolve` callback and provide the value to be passed on. To reject, we call the `reject` callback, and pass in the reason for the rejection.
+
+The `.then()` block that follows will be called **asynchronously** after the promise has been resolved or rejected. It takes in two (optional) callback arguments -- the first for the resolved case, and the second for the rejected case.
+In our example, the promise has been resolved with the value `5` after one second. This event fired the first callback in the `.then()` block, which received the value `5` as an argument. The value can then be accessed in the function body.
+
+Another example, this time of a rejected promise, can be seen here:
 
 ```js
+const myPromise = new Promise((resolve, reject) => {
+  let value;
+  let errors = false;
+
+  setTimeout(() => {
+    errors = true;
+    if (errors) {
+      reject('An error occured.');
+    }
+    value = 5;
+    resolve(value);
+  }, 1000);
+});
+
+myPromise.then(
+  (value) => console.log(value),
+  (reason) => console.error(reason)
+);
+
+// logs (after one second):
+// 'An error occured.'
+```
+
+This time, since `errors` was set to `true`, the promise has been rejected. This event triggered the second callback and the reason for the rejection was logged to the console.
+
+# then().catch(): an alternative syntax
+
+To improve readability, we can replace the rejection callback inside the `.then` block with a `.catch` block.
+
+The previous example can also be rewritten as follows:
+
+```js
+const myPromise = new Promise((resolve, reject) => {
+  let value;
+  let errors = false;
+
+  setTimeout(() => {
+    errors = true;
+    if (errors) {
+      reject('An error occured.');
+    }
+    value = 5;
+    resolve(value);
+  }, 1000);
+});
+
 myPromise
   .then((value) => console.log(value))
-  .catch((error) => console.log(error));
+  .catch((reason) => console.error(reason));
+
+// logs (after one second):
+// 'An error occured.'
 ```
 
-Or, if we'd like to only handle rejected cases:
+This results in the exact same output, but improves readability.
+
+Alternatively, we can only handle rejected promises with the `.catch` block:
 
 ```js
-myPromise.catch((error) => console.log(error));
+const myPromise = new Promise((resolve, reject) => {
+  let value;
+  let errors = false;
 
-// equivalent to:
-myPromise.then(undefined, (error) => console.log(error));
+  setTimeout(() => {
+    errors = true;
+    if (errors) {
+      reject('An error occured.');
+    }
+    value = 5;
+    resolve(value);
+  }, 1000);
+});
+
+myPromise.catch((reason) => console.error(reason));
+
+// logs (after one second):
+// 'An error occured.'
 ```
 
-The `.catch()` block is not more than syntactic sugar, and a more readable alternative.
+Which is equivalent to:
+
+```js
+const myPromise = new Promise((resolve, reject) => {
+  let value;
+  let errors = false;
+
+  setTimeout(() => {
+    errors = true;
+    if (errors) {
+      reject('An error occured.');
+    }
+    value = 5;
+    resolve(value);
+  }, 1000);
+});
+
+myPromise.then(undefined, (reason) => console.error(reason));
+
+// logs (after one second):
+// 'An error occured.'
+```
+
+This basic introduction has provided you with tools required to get started with promises. However, promises have much more built into them than we covered. If you want to learn more, refer to the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
