@@ -38,6 +38,9 @@
   cursor: pointer;
   background: none;
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .interact img {
@@ -49,4 +52,10 @@
 
 .interact img:hover {
   background: rgba(9, 9, 9, 0.075);
+}
+
+.likes {
+  margin-left: 0.25rem;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
 }

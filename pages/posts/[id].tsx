@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Markdown from 'markdown-to-jsx';
 
+import { signInWithGoogle } from '../../firebase/firebase';
+
 import Layout from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../utils/posts';
 import Code from '../../components/code';
 import styles from './post.module.css';
+
+import { UserContext } from '../../context/authContext';
+import { queryPostData } from '../../utils/query';
 
 interface Props {
   postData: {
@@ -18,6 +23,27 @@ interface Props {
 }
 
 const Post = ({ postData }: Props) => {
+  const [likes, setLikes] = useState(null);
+
+  useEffect(() => {
+    // TODO: QUERY DB FOR LIKE COUNT
+    queryPostData({ title: 'Test' }).then((res) => setLikes(res.likes));
+  }, []);
+
+  console.log(likes);
+
+  const { loggedIn } = useContext(UserContext);
+
+  const thumbsUpClickHandler = () => {
+    if (!loggedIn) {
+      signInWithGoogle();
+    } else {
+      console.log('LOGGED IN!');
+      fetch('thumbsup-endpoint');
+      // TODO: QUERY FIRESTORE DB
+    }
+  };
+
   return (
     <Layout>
       <Head>
@@ -50,8 +76,9 @@ const Post = ({ postData }: Props) => {
         <button>
           <img src="/images/comment.png" alt="comment" />
         </button>
-        <button>
-          <img src="/images/thumbsup.png" alt="thumbs up" />
+        <button onClick={thumbsUpClickHandler}>
+          <img src="/images/thumbsup.png" alt="thumbs up" />{' '}
+          <span className={styles.likes}>{likes}</span>
         </button>
       </div>
     </Layout>
