@@ -73,9 +73,6 @@ const Post = ({ postData }: Props) => {
         </Markdown>
       </article>
       <div className={styles.interact}>
-        <button>
-          <img src="/images/comment.png" alt="comment" />
-        </button>
         <button
           onClick={thumbsUpClickHandler}
           className={userLiked ? styles.buttonClicked : ''}
