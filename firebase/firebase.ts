@@ -65,10 +65,8 @@ const onAuthStateChange = (
   return auth.onAuthStateChanged((user) => {
     if (user) {
       callback({ loggedIn: true, email: user.email });
-      console.log('Logged In');
     } else {
       callback({ loggedIn: false, email: null });
-      console.log('Logged out');
     }
   });
 };
