@@ -12,12 +12,7 @@ import Code from '../../components/code';
 import styles from './post.module.css';
 
 import { UserContext } from '../../context/authContext';
-import {
-  queryPostData,
-  updatePostLikes,
-  updateUserLikes,
-  userLikeStatus,
-} from '../../utils/queries';
+import { getUserLikeStatus, changeUserLikeStatus } from '../../utils/queries';
 
 interface Props {
   postData: {
@@ -28,39 +23,23 @@ interface Props {
 }
 
 const Post = ({ postData }: Props) => {
-  const [likes, setLikes] = useState(0);
   const [userLiked, setUserLiked] = useState(false);
-  const [userId, setUserId] = useState('');
   const { loggedIn, email } = useContext(UserContext);
 
   useEffect(() => {
-    // TODO: QUERY DB FOR LIKE COUNT
-    queryPostData({ title: 'Test' }).then((res) => setLikes(res.likes));
-    userLikeStatus({ email, title: 'Test' }).then((res) => {
-      setUserLiked(res.liked);
-      setUserId(res.id);
-    });
+    getUserLikeStatus({ email, title: 'Test' }).then((res) =>
+      setUserLiked(res.liked)
+    );
   }, []);
 
   const thumbsUpClickHandler = () => {
     if (!loggedIn) {
       signInWithGoogle();
     } else {
+      changeUserLikeStatus({ email, title: 'Test' });
       setUserLiked((prevUserLiked) => !prevUserLiked);
-      if (userId) {
-        updateUserLikes({ id: userId, title: 'test' });
-      }
-      if (userLiked) {
-        setLikes((prevLikes) => prevLikes + 1);
-        updatePostLikes({ title: 'Test', increase: true });
-      } else {
-        setLikes((prevLikes) => prevLikes - 1);
-        updatePostLikes({ title: 'Test', increase: false });
-      }
     }
   };
-
-  console.log(userLiked);
 
   return (
     <Layout>
@@ -96,8 +75,7 @@ const Post = ({ postData }: Props) => {
         </button>
         <div className={userLiked ? styles.buttonBackground : ''}>
           <button onClick={thumbsUpClickHandler}>
-            <img src="/images/thumbsup.png" alt="thumbs up" />{' '}
-            <span className={styles.likes}>{likes}</span>
+            <img src="/images/favorite.svg" alt="thumbs up" />{' '}
           </button>
         </div>
       </div>

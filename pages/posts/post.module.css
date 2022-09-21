@@ -54,12 +54,6 @@
   background: rgba(9, 9, 9, 0.075);
 }
 
-.likes {
-  margin-left: 0.25rem;
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
-}
-
 .buttonBackground {
-  background: green;
+  background-color: green;
 }
