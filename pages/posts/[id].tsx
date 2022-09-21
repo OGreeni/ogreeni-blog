@@ -29,7 +29,7 @@ const Post = ({ postData }: Props) => {
   // TEMP FIX (NO DEPENDENCY ARRAY)
   useEffect(() => {
     if (userLiked === null) {
-      getUserLikeStatus({ email, title: 'Test' }).then((res) =>
+      getUserLikeStatus({ email, title: postData.title }).then((res) =>
         setUserLiked(res.liked)
       );
     }
@@ -39,7 +39,7 @@ const Post = ({ postData }: Props) => {
     if (!loggedIn) {
       signInWithGoogle();
     } else {
-      changeUserLikeStatus({ email, title: 'Test' });
+      changeUserLikeStatus({ email, title: postData.title });
       setUserLiked((prevUserLiked) => !prevUserLiked);
     }
   };

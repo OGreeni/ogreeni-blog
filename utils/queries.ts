@@ -28,7 +28,7 @@ export const getUserLikeStatus = async ({
   const docRef = doc(db, 'users', docId);
   const docSnap = await getDoc(docRef);
 
-  return docSnap.data()[title] || null;
+  return docSnap.data()[title] || false;
 };
 
 export const changeUserLikeStatus = async ({
@@ -50,7 +50,7 @@ export const changeUserLikeStatus = async ({
   const docRef = doc(db, 'users', docId);
   const docSnap = await getDoc(docRef);
 
-  if (docSnap.data()[title].liked) {
+  if (docSnap.data()[title]?.liked) {
     await updateDoc(docRef, {
       [title]: { liked: false },
     });
