@@ -23,14 +23,17 @@ interface Props {
 }
 
 const Post = ({ postData }: Props) => {
-  const [userLiked, setUserLiked] = useState(false);
+  const [userLiked, setUserLiked] = useState<boolean>(null);
   const { loggedIn, email } = useContext(UserContext);
 
+  // TEMP FIX (NO DEPENDENCY ARRAY)
   useEffect(() => {
-    getUserLikeStatus({ email, title: 'Test' }).then((res) =>
-      setUserLiked(res.liked)
-    );
-  }, []);
+    if (userLiked === null) {
+      getUserLikeStatus({ email, title: 'Test' }).then((res) =>
+        setUserLiked(res.liked)
+      );
+    }
+  });
 
   const thumbsUpClickHandler = () => {
     if (!loggedIn) {
@@ -73,11 +76,12 @@ const Post = ({ postData }: Props) => {
         <button>
           <img src="/images/comment.png" alt="comment" />
         </button>
-        <div className={userLiked ? styles.buttonBackground : ''}>
-          <button onClick={thumbsUpClickHandler}>
-            <img src="/images/favorite.svg" alt="thumbs up" />{' '}
-          </button>
-        </div>
+        <button
+          onClick={thumbsUpClickHandler}
+          className={userLiked ? styles.buttonClicked : ''}
+        >
+          <img src="/images/favorite.png" alt="thumbs up" />{' '}
+        </button>
       </div>
     </Layout>
   );

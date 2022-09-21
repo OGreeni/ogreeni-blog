@@ -54,6 +54,10 @@
   background: rgba(9, 9, 9, 0.075);
 }
 
-.buttonBackground {
-  background-color: green;
+.interact .buttonClicked img {
+  background: rgba(9, 9, 9, 0.287);
+}
+
+.interact .buttonClicked img:hover {
+  background: rgba(9, 9, 9, 0.075);
 }
