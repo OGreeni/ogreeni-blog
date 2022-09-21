@@ -12,7 +12,12 @@ import Code from '../../components/code';
 import styles from './post.module.css';
 
 import { UserContext } from '../../context/authContext';
-import { queryPostData } from '../../utils/query';
+import {
+  queryPostData,
+  updatePostLikes,
+  updateUserLikes,
+  userLikeStatus,
+} from '../../utils/queries';
 
 interface Props {
   postData: {
@@ -23,26 +28,39 @@ interface Props {
 }
 
 const Post = ({ postData }: Props) => {
-  const [likes, setLikes] = useState(null);
+  const [likes, setLikes] = useState(0);
+  const [userLiked, setUserLiked] = useState(false);
+  const [userId, setUserId] = useState('');
+  const { loggedIn, email } = useContext(UserContext);
 
   useEffect(() => {
     // TODO: QUERY DB FOR LIKE COUNT
     queryPostData({ title: 'Test' }).then((res) => setLikes(res.likes));
+    userLikeStatus({ email, title: 'Test' }).then((res) => {
+      setUserLiked(res.liked);
+      setUserId(res.id);
+    });
   }, []);
-
-  console.log(likes);
-
-  const { loggedIn } = useContext(UserContext);
 
   const thumbsUpClickHandler = () => {
     if (!loggedIn) {
       signInWithGoogle();
     } else {
-      console.log('LOGGED IN!');
-      fetch('thumbsup-endpoint');
-      // TODO: QUERY FIRESTORE DB
+      setUserLiked((prevUserLiked) => !prevUserLiked);
+      if (userId) {
+        updateUserLikes({ id: userId, title: 'test' });
+      }
+      if (userLiked) {
+        setLikes((prevLikes) => prevLikes + 1);
+        updatePostLikes({ title: 'Test', increase: true });
+      } else {
+        setLikes((prevLikes) => prevLikes - 1);
+        updatePostLikes({ title: 'Test', increase: false });
+      }
     }
   };
+
+  console.log(userLiked);
 
   return (
     <Layout>
@@ -76,10 +94,12 @@ const Post = ({ postData }: Props) => {
         <button>
           <img src="/images/comment.png" alt="comment" />
         </button>
-        <button onClick={thumbsUpClickHandler}>
-          <img src="/images/thumbsup.png" alt="thumbs up" />{' '}
-          <span className={styles.likes}>{likes}</span>
-        </button>
+        <div className={userLiked ? styles.buttonBackground : ''}>
+          <button onClick={thumbsUpClickHandler}>
+            <img src="/images/thumbsup.png" alt="thumbs up" />{' '}
+            <span className={styles.likes}>{likes}</span>
+          </button>
+        </div>
       </div>
     </Layout>
   );
