@@ -1,6 +1,7 @@
 .container {
   margin: 10rem auto 0;
-  max-width: 50rem;
+  width: 85%;
+  max-width: 50;
 }
 
 .title {
