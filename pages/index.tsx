@@ -34,7 +34,7 @@ const Home = ({ postsData }: Props) => {
         <h1>My recent articles</h1>
         <ul>
           {postsData.map(({ id, title, date }) => (
-            <Link href={`/posts/${id}`}>
+            <Link href={`/posts/${id}`} key={id}>
               <li key={id}>
                 {title}
                 <br />
