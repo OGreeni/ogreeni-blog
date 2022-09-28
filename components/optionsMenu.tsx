@@ -74,7 +74,7 @@ const OptionsMenu = ({ show, setShow, setShowModal }: Props) => {
         }}
         className={styles.close}
       >
-        <img src="/images/close.png" alt="close" />{' '}
+        <img src="/images/close.png" alt="close" />
       </div>
     </div>
   );

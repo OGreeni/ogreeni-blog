@@ -58,9 +58,3 @@ container .buttonLink:hover {
   outline: none;
   cursor: pointer;
 }
-
-@media (min-width: 768px) {
-  .container {
-    display: none;
-  }
-}
