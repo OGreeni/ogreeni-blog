@@ -1,0 +1,66 @@
+.container {
+  pointer-events: none;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #588958;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.container.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.close img {
+  position: absolute;
+  cursor: pointer;
+  top: 30px;
+  right: 30px;
+  border-radius: 50%;
+  transition: background-color 100ms;
+}
+
+.close img:hover {
+  background: rgba(9, 9, 9, 0.075);
+}
+
+.container div,
+container .buttonLink {
+  margin: 2rem;
+  transition: opacity 100ms linear;
+}
+
+.container div:hover,
+container .buttonLink:hover {
+  opacity: 0.6;
+}
+
+.container a {
+  font-size: 2rem;
+  color: white;
+  font-weight: bolder;
+}
+
+.container .buttonLink {
+  font-size: 2rem;
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: none;
+  }
+}
