@@ -13,9 +13,20 @@ const Modal = ({ children, show, setShow }: Props) => {
     return (
       <>
         <div className={styles.modalContainer}>
-          <div className={styles.backdrop} onClick={() => setShow(false)} />
+          <div
+            className={styles.backdrop}
+            onClick={() => {
+              setShow(false);
+              document.body.classList.remove('overflowHidden');
+            }}
+          />
           <div className={styles.modal}>
-            <div onClick={() => setShow(false)}>
+            <div
+              onClick={() => {
+                setShow(false);
+                document.body.classList.remove('overflowHidden');
+              }}
+            >
               <img src="/images/close.png" alt="close" />{' '}
             </div>
             {children}

@@ -31,3 +31,7 @@ strong {
 p {
   line-height: 2rem;
 }
+
+body.overflowHidden {
+  overflow: hidden;
+}

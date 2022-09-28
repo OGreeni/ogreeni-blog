@@ -54,14 +54,24 @@ const TopNav = () => {
                 </Button>
               </>
             )}
-            <Button onClick={() => setShowModal(true)}>Contact</Button>
+            <Button
+              onClick={() => {
+                setShowModal(true);
+                document.body.classList.add('overflowHidden');
+              }}
+            >
+              Contact
+            </Button>
           </div>
         </div>
         <div
           className={styles.hamburger}
-          onClick={() =>
-            setHamburgerClicked((prevHamburgerClicked) => !prevHamburgerClicked)
-          }
+          onClick={() => {
+            setHamburgerClicked(
+              (prevHamburgerClicked) => !prevHamburgerClicked
+            );
+            document.body.classList.add('overflowHidden');
+          }}
         >
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>

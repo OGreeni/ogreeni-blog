@@ -22,12 +22,20 @@ const OptionsMenu = ({ show, setShow, setShowModal }: Props) => {
         <a
           href="http://github.com/OGreeni"
           target="_blank"
-          onClick={() => setShow(false)}
+          onClick={() => {
+            setShow(false);
+            document.body.classList.remove('overflowHidden');
+          }}
         >
           GitHub
         </a>
       </div>
-      <div onClick={() => setShow(false)}>
+      <div
+        onClick={() => {
+          setShow(false);
+          document.body.classList.remove('overflowHidden');
+        }}
+      >
         <Link href="/about">
           <a>About</a>
         </Link>
@@ -42,6 +50,7 @@ const OptionsMenu = ({ show, setShow, setShowModal }: Props) => {
               signInWithGoogle();
             }
             setShow(false);
+            document.body.classList.remove('overflowHidden');
           }}
         >
           {loggedIn ? 'Logout' : 'Login'}
@@ -58,26 +67,17 @@ const OptionsMenu = ({ show, setShow, setShowModal }: Props) => {
           Contact
         </button>
       </div>
-      <div onClick={() => setShow(false)} className={styles.close}>
+      <div
+        onClick={() => {
+          setShow(false);
+          document.body.classList.remove('overflowHidden');
+        }}
+        className={styles.close}
+      >
         <img src="/images/close.png" alt="close" />{' '}
       </div>
     </div>
   );
 };
-
-// {loggedIn && (
-//     <Button onClick={() => logout()} image="/images/googlelogo.png">
-//       Sign out
-//     </Button>
-//   )}
-
-//   {!loggedIn && (
-//     <>
-//       <Button
-//         onClick={signInWithGoogle}
-//         image="/images/googlelogo.png"
-//       >
-//         Sign in
-//       </Button>
 
 export default OptionsMenu;
