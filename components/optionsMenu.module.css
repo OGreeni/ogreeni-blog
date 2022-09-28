@@ -47,10 +47,10 @@ container .buttonLink:hover {
 .container a {
   font-size: 2rem;
   color: white;
-  font-weight: bolder;
 }
 
 .container .buttonLink {
+  font: inherit;
   font-size: 2rem;
   color: white;
   background: none;
