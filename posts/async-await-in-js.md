@@ -5,7 +5,7 @@ date: September 13, 2022
 
 # What is async-await?
 
-Asynchronous functions (or ‘async’ for short) grew in popularity since they enable us to work with asynchronous operations ([promises](promises-in-js)) in a way that closely resembles synchronous JavaScript.
+Asynchronous functions (or ‘async’ for short) grew in popularity since they enable us to work with asynchronous operations (traditionally handled with [promises](promises-in-js)) in a way that closely resembles synchronous JavaScript.
 
 Consider the following example of an asynchronous HTTP request using promises:
 
