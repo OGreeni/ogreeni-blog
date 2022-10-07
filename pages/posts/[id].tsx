@@ -4,12 +4,12 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Markdown from 'markdown-to-jsx';
 
-import { signInWithGoogle } from 'firebase/firebase';
+import { signInWithGoogle } from 'services/firebase';
 
 import Layout from 'components/layout';
 import { getAllPostIds, getPostData } from 'utils/posts';
 import Code from 'components/code';
-import styles from './post.module.css';
+import styles from 'styles/post.module.css';
 
 import { UserContext } from 'context/authContext';
 import { getUserLikeStatus, changeUserLikeStatus } from 'utils/queries';

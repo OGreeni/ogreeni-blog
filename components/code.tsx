@@ -1,7 +1,7 @@
 import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
-import styles from './code.module.css';
+import styles from 'styles/code.module.css';
 
 interface Props {
   className?: string;

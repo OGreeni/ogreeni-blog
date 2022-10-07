@@ -1,8 +1,8 @@
 import React, { FormEvent, useState } from 'react';
 
-import Button from './button';
+import Button from 'components/button';
 
-import styles from './contactForm.module.css';
+import styles from 'styles/contactForm.module.css';
 
 const ContactForm = () => {
   const [subjectValue, setSubjectValue] = useState('');

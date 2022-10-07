@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import Link from 'next/link';
 
-import { UserContext } from '../context/authContext';
+import { UserContext } from 'context/authContext';
 
-import { signInWithGoogle, logout } from '../firebase/firebase';
+import { signInWithGoogle, logout } from 'services/firebase';
 
-import styles from './optionsMenu.module.css';
+import styles from 'styles/optionsMenu.module.css';
 
 interface Props {
   show: boolean;

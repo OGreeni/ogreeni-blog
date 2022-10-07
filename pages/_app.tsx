@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import { onAuthStateChange } from '../firebase/firebase';
+import { onAuthStateChange } from '../services/firebase';
 
 import TopNav from 'components/topnav';
 import { UserProvider } from 'context/authContext';

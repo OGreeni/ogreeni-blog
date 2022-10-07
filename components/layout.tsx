@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
-import styles from './layout.module.css';
+import styles from 'styles/layout.module.css';
 
 interface Props {
   children: JSX.Element | JSX.Element[];

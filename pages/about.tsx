@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-import styles from 'about.module.css';
+import styles from 'styles/about.module.css';
 import Layout from 'components/layout';
 import Button from 'components/button';
 

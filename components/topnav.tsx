@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 
-import styles from './topnav.module.css';
-import Button from './button';
-import Modal from './modal';
-import ContactForm from './contactForm';
-import OptionsMenu from './optionsMenu';
+import styles from 'styles/topnav.module.css';
+import Button from 'components/button';
+import Modal from 'components/modal';
+import ContactForm from 'components/contactForm';
+import OptionsMenu from 'components/optionsMenu';
 
-import { UserContext } from '../context/authContext';
-import { signInWithGoogle, logout } from '../firebase/firebase';
+import { UserContext } from 'context/authContext';
+import { signInWithGoogle, logout } from 'services/firebase';
 
 const TopNav = () => {
   const [showModal, setShowModal] = useState(false);

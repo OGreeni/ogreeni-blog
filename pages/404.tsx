@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from 'components/layout';
 
-import styles from './404.module.css';
+import styles from 'styles/404.module.css';
 
 const Custom404 = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticImageData } from 'next/image';
 
-import styles from './button.module.css';
+import styles from 'styles/button.module.css';
 
 interface Props {
   children: string;
