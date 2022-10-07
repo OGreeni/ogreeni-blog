@@ -1,6 +1,5 @@
 ---
 title: "React.memo, useMemo, and useCallback: What's the Difference?"
-
 date: October 3, 2022
 ---
 
