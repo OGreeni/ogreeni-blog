@@ -31,7 +31,7 @@ const Home = ({ postsData }: Props) => {
         </p>
       </section>
       <section className={styles.blog}>
-        <h1>My recent blog posts:</h1>
+        <h1>Blog:</h1>
         <ul>
           {postsData.map(({ id, title, date }) => (
             <Link href={`/posts/${id}`} key={id}>
