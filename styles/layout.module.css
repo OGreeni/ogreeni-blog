@@ -9,7 +9,12 @@
 }
 
 .green {
-  color: #588958;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 300% 100%;
+  background-image: linear-gradient(-45deg, #233329, #63d471);
+  animation: background-pan 3s linear infinite alternate;
 }
 
 .headerContainer {
@@ -19,4 +24,10 @@
 
 .profile {
   border-radius: 50%;
+}
+
+@keyframes background-pan {
+  to {
+    background-position: 100% center;
+  }
 }
