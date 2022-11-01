@@ -17,7 +17,7 @@ const About = () => {
           <p>
             I'm a <strong>full-stack</strong> developer, mainly using the MERN
             stack. As of now, I'm pursuing my software engineering dream by
-            studying computer science at <strong>Rutgers University</strong>.
+            studying Computer Science at <strong>Rutgers University</strong>.
           </p>
         </article>
         <h3>Download my resume:</h3>
