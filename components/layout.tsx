@@ -23,13 +23,15 @@ const Layout = ({ children, home, about }: Props) => {
               Hi, I'm Omri{' '}
               <span className={`${styles.title} ${styles.green}`}>Green</span>
             </h1>
-            <Image
-              src="/images/profile.jpg"
-              height={400}
-              width={400}
-              alt="Omri Green"
-              className={styles.profile}
-            />
+            <div className={styles.profileContainer}>
+              <Image
+                src="/images/profile.jpg"
+                height={400}
+                width={400}
+                alt="Omri Green"
+                className={styles.profile}
+              />
+            </div>
           </div>
         </header>
       )}
