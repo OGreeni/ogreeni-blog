@@ -36,6 +36,8 @@
 
 .container button {
   margin-left: 1rem;
+  box-sizing: content-box;
+  width: 5rem;
 }
 
 @media (max-width: 768px) {
