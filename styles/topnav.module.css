@@ -40,7 +40,7 @@
   width: 8rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 50em) {
   .brand {
     font-size: 1.5rem;
   }

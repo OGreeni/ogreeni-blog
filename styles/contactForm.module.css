@@ -55,3 +55,9 @@
     transform: scale(1);
   }
 }
+
+@media only screen and (max-width: 50em) {
+  .contactForm input:focus + .inputUnderline::after {
+    width: 59.3%;
+  }
+}
