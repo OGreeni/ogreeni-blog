@@ -26,7 +26,7 @@
   content: '';
   display: block;
   background: #588958;
-  width: 62.5%;
+  width: 25rem;
   height: 4px;
   animation: underline-expand 100ms forwards;
 }
@@ -53,11 +53,5 @@
   }
   to {
     transform: scale(1);
-  }
-}
-
-@media only screen and (max-width: 50em) {
-  .contactForm input:focus + .inputUnderline::after {
-    width: 59.3%;
   }
 }
